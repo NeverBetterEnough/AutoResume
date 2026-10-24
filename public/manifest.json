@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Resume Pilot · 简历投递助手",
+  "version": "0.1.2",
+  "description": "读取当前申请页面，结合简历与个人知识库制定计划、自动填写并验证。",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "activeTab", "tabs", "scripting", "sidePanel", "unlimitedStorage"],
+  "host_permissions": ["https://api.deepseek.com/*", "https://open.bigmodel.cn/*"],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": {
+    "default_title": "打开 Resume Pilot",
+    "default_icon": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" }
+  },
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; worker-src 'self'"
+  }
+}

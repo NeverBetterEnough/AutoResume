@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><title>前端工程师 · 示例申请</title
+  ><style>
+    body {
+      font: 15px system-ui;
+      background: #f5f7f3;
+      color: #294333;
+      padding: 30px;
+      max-width: 780px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 26px;
+    }
+    fieldset {
+      border: 1px solid #d6dfcc;
+      border-radius: 10px;
+      margin: 20px 0;
+      padding: 22px;
+      background: #fff;
+    }
+    label {
+      display: block;
+      margin: 15px 0;
+    }
+    input,
+    textarea,
+    select {
+      display: block;
+      padding: 10px;
+      border: 1px solid #cbd7bf;
+      border-radius: 5px;
+      min-width: 250px;
+      font: inherit;
+      margin-top: 7px;
+    }
+    input[type='radio'],
+    input[type='checkbox'] {
+      display: inline;
+      min-width: 0;
+    }
+    button {
+      padding: 13px 24px;
+      background: #294d36;
+      color: white;
+      border: 0;
+      border-radius: 6px;
+    }
+    .note {
+      color: #7c8e6b;
+      font-size: 12px;
+    }
+  </style>
+  <body>
+    <h1>前端工程师</h1>
+    <p>我们期待熟悉 React 和 TypeScript 的工程师。请完成申请表。</p>
+    <form id="application">
+      <fieldset>
+        <legend>基本资料</legend>
+        <label>姓名<input name="name" required /></label
+        ><label>邮箱<input name="email" type="email" required /></label
+        ><label>手机号<input name="phone" type="tel" required /></label
+        ><label
+          >所在城市<select name="city" required>
+            <option value="">请选择</option>
+            <option value="sh">上海</option>
+            <option value="bj">北京</option>
+          </select></label
+        ><label
+          >学历<select name="education" required>
+            <option value="">请选择</option>
+            <option value="bachelor">本科</option>
+            <option value="master">硕士</option>
+          </select></label
+        >
+        <div id="conditional"></div>
+      </fieldset>
+      <fieldset>
+        <legend>进一步了解你</legend>
+        <label>个人优势<textarea name="strengths" maxlength="1000" required></textarea></label
+        ><label>期望薪资<input name="salary" required /></label
+        ><label>简历附件<input name="resume" type="file" accept=".txt,.pdf,.docx" /></label
+        ><label>验证码<input name="captcha" value="" /></label
+        ><label><input name="consent" type="checkbox" />我同意隐私政策</label>
+      </fieldset>
+      <button type="submit">提交申请</button>
+      <p class="note">本地测试页面，不会产生真实投递。</p>
+    </form>
+    <script>
+      document.querySelector('[name=education]').addEventListener('change', () => {
+        document.querySelector('#conditional').innerHTML =
+          '<label>毕业学校<input name="school" required></label>';
+      });
+      document.querySelector('form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        document.body.dataset.submitted = 'true';
+      });
+    </script>
+  </body>
+</html>
